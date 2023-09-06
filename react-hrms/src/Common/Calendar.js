@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { cards, bgTheme } from '../../Utils/Classes';
-import { months, days, getYears } from '../../Utils/DataService';
+import { cards, bgTheme } from '../Utils/Classes';
+import { months, days, getYears } from '../Utils/DataService';
 
-function MyCalendar({ onDateSelection = () => { console.log('selected')} }) {
+function Calendar({ onDateSelection = () => { console.log('selected')} }) {
   const [month, setMonth] = useState(0);
   const [year, setYear] = useState(0);
   const [dates, setDates] = useState([]);
-  const [data, setData] = useState({
-    month: 0 || new Date().getMonth(),
-    year: 0 || new Date().getFullYear()
-  });
+  const [data, setData] = useState({});
   const isTodayDate = (date) => {
     const isCheck = (new Date().getMonth() === month) &&
       (new Date().getFullYear() === year) && (date === new Date().getDate())
@@ -34,6 +31,10 @@ function MyCalendar({ onDateSelection = () => { console.log('selected')} }) {
 
   useEffect(() => {
     updateDates();
+    setData({
+      month: 0 || new Date().getMonth(),
+      year: 0 || new Date().getFullYear()
+    })
   }, []);
   return (
     <>
@@ -94,4 +95,4 @@ function MyCalendar({ onDateSelection = () => { console.log('selected')} }) {
   )
 }
 
-export default MyCalendar
+export default Calendar

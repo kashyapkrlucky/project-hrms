@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import ReactECharts from 'echarts-for-react';
 import { cards } from '../../Utils/Classes';
@@ -37,19 +37,16 @@ function AttendanceView({data}) {
         ]
     };
 
-    const [count, setCount] = useState(0);
-
     function onChartReady(echarts) {
-        console.log('echarts is ready', echarts);
+        // console.log('echarts is ready', echarts);
     }
 
     function onChartClick(param, echarts) {
-        console.log(param, echarts);
-        setCount(count + 1);
+        // console.log(param, echarts);
     };
 
     function onChartLegendselectchanged(param, echarts) {
-        console.log(param, echarts);
+        // console.log(param, echarts);
     };
     return (
         <div className={cards + ' h-80 gap-4'}>

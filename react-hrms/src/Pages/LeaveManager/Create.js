@@ -31,7 +31,7 @@ function LeaveCreate({ setIsFormOpen, loadData }) {
 
     const addLeave = async () => {
         const newLeave = { ...leave, isHalfDay: leave.isHalfDay === 'yes' ? true : false }
-        const { data: { data }, status } = await HttpClient.post(`leave/my-leaves/add`, newLeave);
+        const { status } = await HttpClient.post(`leave/my-leaves/add`, newLeave);
         if (status === 200) {
             loadData();
             setIsFormOpen();

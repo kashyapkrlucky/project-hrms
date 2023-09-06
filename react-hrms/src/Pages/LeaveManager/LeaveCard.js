@@ -1,15 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Moment from 'react-moment';
 import { leaveTypes } from '../../Utils/DataService';
 import BtnOutline from '../../Common/BtnOutline';
 import LeaveStatus from './LeaveStatus';
 import HttpClient from '../../HttpClient';
 import BtnSolid from '../../Common/BtnSolid';
-import EmployeeName from '../../Components/EmployeeName';
 
 function LeaveCard({ item, loadData, type }) {
-    const labelStyle = 'text-xs text-slate-500 uppercase';
-    const valueStyle = 'text-md font-medium capitalize';
     const updateStatus = async (id, leaveType, leaveStatus) => {
         const payload = {
             id,

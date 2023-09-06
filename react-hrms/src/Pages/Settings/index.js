@@ -4,10 +4,6 @@ import ProfileForm from './ProfileForm'
 import { container } from '../../Utils/Classes'
 
 function Settings() {
-  const btnOne = {
-    label: 'Save Changes',
-    action: () => {}
-  }
   return (
     <>
       <SubNavBar title="Settings" />

@@ -1,16 +1,8 @@
 import React from 'react';
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/outline';
-import { container, themeColor } from "../../Utils/Classes";
-import LabelTextarea from '../../Common/LabelTextarea';
-import LabelInput from '../../Common/LabelInput';
-import BtnOutline from '../../Common/BtnOutline';
-import BtnSolid from '../../Common/BtnSolid';
-import UpdateAvatar from '../../Components/UpdateAvatar';
+import { container } from "../../Utils/Classes";
 
 function ProfileForm() {
-  const onPhotoChange = (e) => {
-    console.log(e);
-  }
+  
   return (
     <div className={container + " bg-white rounded-lg"}>
       <form className='w-full'>

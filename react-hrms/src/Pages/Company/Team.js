@@ -25,7 +25,7 @@ function Team({ teams, getTeams, departments }) {
     }
 
     const onSubmit = async () => {
-        const payload = { ...item, manager: item.manager._id };
+        // const payload = { ...item, manager: item.manager._id };
         const { status } = await HttpClient.post('company/team/add', item);
         if (status === 200) {
             getTeams();

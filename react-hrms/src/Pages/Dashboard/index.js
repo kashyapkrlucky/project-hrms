@@ -3,9 +3,7 @@ import { UserContext } from '../../Contexts/UserContext';
 import Moment from 'react-moment';
 import HttpClient from '../../HttpClient';
 import Announcements from './Announcements';
-import MyQuery from './MyQuery';
 import Birthdays from './Birthdays';
-import MyCalendar from './MyCalendar';
 import Attendance from './Attendance';
 import AttendanceView from './AttendanceView';
 
@@ -20,8 +18,8 @@ function Dashboard() {
             const inOffice = docs.filter(x => x.location === 'Office');
             const remote = docs.filter(x => x.location === 'Remote');
             setChartData([
-                { value: inOffice.length, name: 'In Office' },
-                { value: remote.length, name: 'Remote' },
+                { value: inOffice.length || 0, name: 'In Office' },
+                { value: remote.length || 0, name: 'Remote' },
                 { value: absent, name: 'Absent' },
             ])
         }
@@ -45,14 +43,13 @@ function Dashboard() {
                 <div className='flex flex-row gap-4'>
                     <div className='w-1/3 flex flex-col gap-4'>
                         <Announcements />
-                        <AttendanceView data={chartData} />
                     </div>
                     <div className='w-1/3 flex flex-col gap-4'>
-                        <Attendance />
                         <Birthdays />
                     </div>
                     <div className='w-1/3 flex flex-col gap-4'>
-                        <MyCalendar />
+                        <Attendance />
+                        <AttendanceView data={chartData} />
                     </div>
                 </div>
             </main>

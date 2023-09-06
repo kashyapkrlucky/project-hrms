@@ -1,8 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import SubNavBar from '../../Layouts/SubNavBar'
 import { container } from '../../Utils/Classes'
-import { NavLink, Outlet } from 'react-router-dom';
-import { ProfileLinks } from "../../Utils/DataService";
+import { Outlet } from 'react-router-dom';
 import TabMenu from '../../Common/TabMenu';
 import AboutMe from './AboutMe';
 import ProfileInfo from './ProfileInfo';

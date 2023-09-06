@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { cards } from '../../Utils/Classes'
-import { BriefcaseIcon, ClockIcon, EllipsisHorizontalCircleIcon, EnvelopeIcon, PhoneIcon, UserCircleIcon } from '@heroicons/react/24/outline';
+import { BriefcaseIcon, ClockIcon, EllipsisHorizontalCircleIcon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
 
 import Moment from 'react-moment';
 import OfferStatus from './OfferStatus';

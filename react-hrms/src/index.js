@@ -23,6 +23,7 @@ import MyTasks from './Pages/MyTasks';
 import Company from './Pages/Company';
 import EditEmployee from './Pages/Employees/EditEmployee';
 import Employee from './Pages/Employee';
+import MyCalendar from './Pages/MyCalendar';
 
 const App = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
@@ -45,6 +46,7 @@ const App = () => {
               </Route>
               <Route path="my-profile" element={<MyProfile />}></Route>
               <Route path="my-tasks" element={<MyTasks />} />
+              <Route path="my-calendar" element={<MyCalendar />} />
               <Route path="leave-manager" element={<LeaveManager />} />
               <Route path="company" element={<Company />} />
               <Route path="pay-benefits" element={<PayBenefits />} />

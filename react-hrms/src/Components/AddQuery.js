@@ -4,6 +4,7 @@ import { queryCategory } from "../Utils/DataService";
 import LabelInput from '../Common/LabelInput';
 import LabelTextarea from '../Common/LabelTextarea';
 import LabelDropDown from '../Common/LabelDropDown';
+import { textTheme } from '../Utils/Classes';
 
 function AddQuery() {
     const [query, setQuery] = useState({
@@ -22,7 +23,7 @@ function AddQuery() {
     }
     return (
         <div className='flex flex-col gap-4 p-4 bg-white rounded-lg'>
-            <h2 className='text-xl font-medium text-rose-500'>Raise a Query</h2>
+            <h2 className={'text-xl font-medium ' + textTheme}>Raise a Query</h2>
             <form onSubmit={onSubmit} className="space-y-3">
                 <LabelInput label="Title" name="title" type="text" onChange={onChange} />
                 <LabelDropDown label='Category' name='category' list={queryCategory} onChange={onChange}/>

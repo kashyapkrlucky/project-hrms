@@ -28,9 +28,9 @@ function Holidays() {
         }
     }
     const isHolidayPast = (date) => {
-        const todayD = new Date().getDate();
+        // const todayD = new Date().getDate();
         const todayM = new Date().getMonth();
-        const currD = new Date(date).getDate();
+        // const currD = new Date(date).getDate();
         const currM = new Date(date).getMonth();
         return ((todayM <= currM) ) ? 'bg-green-200' : 'bg-slate-200';
     }

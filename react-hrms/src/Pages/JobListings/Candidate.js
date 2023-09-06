@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import HttpClient from '../../HttpClient';
 import { EllipsisHorizontalCircleIcon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import { interviewStatus } from '../../Utils/DataService';
 
 function Candidate({ item, getJobInfo }) {
-    const onStatusUpdate = async (e) => {
-        const { status } = await HttpClient.put('recruitment/update/status', { _id: item._id, status: e });
-        if (status === 200) {
-            getJobInfo();
-        }
-    }
     const [curStatus, setCurStatus] = useState({});
     
     useEffect(() => {

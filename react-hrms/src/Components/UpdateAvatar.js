@@ -1,12 +1,10 @@
 import React, { useContext, useState } from 'react'
 import { UserContext } from '../Contexts/UserContext';
 import Avatar from './Avatar';
-import { CameraIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import BtnOutline from '../Common/BtnOutline';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 import { bgTheme, borderTheme, outlineBtn } from '../Utils/Classes';
 import { ModalPage } from './ModelPage';
 import { Avatars } from '../Utils/DataService';
-import BtnSolid from '../Common/BtnSolid';
 
 function UpdateAvatar({onPhotoChange}) {
     const [user] = useContext(UserContext);
@@ -25,7 +23,6 @@ function UpdateAvatar({onPhotoChange}) {
     }
 
     const onSelect = async (url) => {
-        
         onPhotoChange(url);
         setIsEditorOpen(false);
     }

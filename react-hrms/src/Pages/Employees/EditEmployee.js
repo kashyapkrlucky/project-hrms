@@ -56,7 +56,6 @@ function EditEmployee() {
                 role: employee.role,
                 reportingTo: employee?.reportingTo?._id
             }
-            console.log(emp);
             const { status } = await HttpClient.put(`employee/update`, emp);
             if (status === 200) {
                 console.log('Profile Updated');
@@ -64,12 +63,7 @@ function EditEmployee() {
             }
         }
     }
-
-    const btnTwo = {
-        label: 'Cancel',
-        action: () => { }
-    }
-
+    
     const title = employee.firstName + ' ' + employee.lastName + ' (' + employee.empCode + ')';
     const onClear = () => {
         setEmployee(() => {

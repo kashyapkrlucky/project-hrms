@@ -26,7 +26,7 @@ function AboutMe() {
         })
     }
     const onSave = async () => {
-        const { data: { data }, status } = await HttpClient.put('employee/update/profile', formData);
+        const { status } = await HttpClient.put('employee/update/profile', formData);
         if (status === 200) {
             setUser({...user, avatar: formData.avatar})
         }

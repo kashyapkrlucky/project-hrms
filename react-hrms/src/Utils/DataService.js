@@ -1,6 +1,7 @@
 
 import {
     CalendarDaysIcon,
+    CalendarIcon,
     ClipboardDocumentCheckIcon,
     Cog8ToothIcon,
     CurrencyDollarIcon,
@@ -19,9 +20,10 @@ export const NavLinks = [
         category: 'Personal',
         links: [
             { name: 'Dashboard', path: '/app/dashboard', icon: <Squares2X2Icon className='w-6 h-6' /> },
-            { name: 'Leave Manager', path: '/app/leave-manager', icon: <CalendarDaysIcon className='w-6 h-6' /> },
-            { name: 'Pay & Benefits', path: '/app/pay-benefits', icon: <CurrencyDollarIcon className='w-6 h-6' /> },
+            { name: 'My Calendar', path: '/app/my-calendar', icon: <CalendarDaysIcon className='w-6 h-6' /> },
             { name: 'My Tasks', path: '/app/my-tasks', icon: <ClipboardDocumentCheckIcon className='w-6 h-6' /> },
+            { name: 'Pay & Benefits', path: '/app/pay-benefits', icon: <CurrencyDollarIcon className='w-6 h-6' /> },
+            { name: 'Leave Manager', path: '/app/leave-manager', icon: <CalendarIcon className='w-6 h-6' /> }
         ]
     },
     {
@@ -85,7 +87,7 @@ export const getYears = (startYear = 2000) => {
 }
 
 export const queryCategory = [
-    { _id: 1, name: "HR related" },
+    { _id: 1, name: "Human Resource" },
     { _id: 2, name: "IT Support" },
     { _id: 3, name: "Finance" }
 ];

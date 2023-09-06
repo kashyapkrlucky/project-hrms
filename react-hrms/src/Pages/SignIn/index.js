@@ -4,9 +4,8 @@ import BtnSolid from '../../Common/BtnSolid';
 import { useNavigate } from 'react-router-dom';
 import { cards } from '../../Utils/Classes';
 import HttpClient from '../../HttpClient';
-import { toast } from 'react-toastify';
 import { logoUrl } from '../../Utils/DataService';
-import { isExpired, decodeToken } from "react-jwt";
+import { decodeToken } from "react-jwt";
 import { UserContext } from '../../Contexts/UserContext';
 
 function SignIn() {
@@ -37,6 +36,7 @@ function SignIn() {
                     avatar: info.avatar
                 }
                 setUser(employee);
+                console.log(user);
                 localStorage.setItem('user', JSON.stringify(employee));
                 navigate('/app/dashboard');
             }

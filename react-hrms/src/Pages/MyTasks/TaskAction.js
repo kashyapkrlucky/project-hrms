@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import LabelInput from '../../Common/LabelInput';
 import LabelDropDown from '../../Common/LabelDropDown';
 import BtnOutline from '../../Common/BtnOutline';

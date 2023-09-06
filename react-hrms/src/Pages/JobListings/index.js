@@ -6,7 +6,6 @@ import JobCreate from './JobCreate';
 import JobCard from './JobCard';
 import NoItems from '../../Common/NoItems';
 import HttpClient from '../../HttpClient';
-// import { createRandomJob } from '../../Utils/DataService';
 
 function JobListings() {
   const [isFormOpen, setIsFormOpen] = useState(false);
