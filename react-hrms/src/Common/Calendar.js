@@ -18,6 +18,7 @@ function Calendar({ onDateSelection = () => { console.log('selected')} }) {
     data[name] = parseFloat(value);
     updateDates();
   }
+  
   const updateDates = () => {
     const leapYear = data.year % 4 === 0 ? 29 : 28;
     const days30m = [3, 5, 8, 10];
