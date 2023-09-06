@@ -1,0 +1,20 @@
+module.exports = {
+    AppName: 'HRMS',
+    NotAuthorized: 'You are not authorize to access',
+    InvalidToken: 'Invalid authorization token',
+    RecordsFound: ' Records found',
+    RecordsCreated: 'Record created',
+    RecordsUpdated: 'Record updated',
+    RecordsRemoved: 'Record removed',
+    RecordsUploaded: 'Record uploaded',
+    ErrorFinding: 'Error in finding',
+    ErrorCreating: 'Error in creating',
+    ErrorUpdating: 'Error in updating',
+    ErrorRemoving: 'Error in removing',
+    ErrorUploading: 'Error in uploading',
+    EmailRegistered: 'Email already registered with us',
+    InvalidUserNamePassword: 'Invalid User name or Password',
+    InvalidEmailPassword: 'Invalid Email or Password',
+    CurrentPasswordWrong: 'Current password is wrong',
+    Authenticated: 'Authenticated'
+}

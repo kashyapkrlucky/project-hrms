@@ -1,0 +1,9 @@
+export const textTheme = "text-emerald-500";
+export const bgTheme = "bg-emerald-500";
+export const borderTheme = "border-emerald-500";
+export const container = "mx-auto p-4";
+export const cards = "bg-white shadow-md rounded-md px-4 py-4";
+export const cardHeader = "bg-white shadow-md rounded-md px-4 py-4";
+export const simpleCard = "bg-white p-5";
+export const fxCenBet = simpleCard + " flex flex-row items-center justify-between";
+export const outlineBtn = "rounded-md px-3 py-1.5 text-sm font-medium bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50";
