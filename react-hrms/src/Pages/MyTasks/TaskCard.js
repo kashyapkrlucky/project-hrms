@@ -3,8 +3,9 @@ import { CheckCircleIcon, EllipsisHorizontalCircleIcon, ExclamationCircleIcon } 
 import BtnOutline from '../../Common/BtnOutline';
 import BtnSolid from '../../Common/BtnSolid';
 import Moment from 'react-moment';
+import { tagList } from '../../Utils/DataService';
 
-function TaskCard({ item, defaults, onUpdate, onDelete }) {
+function TaskCard({ item, onUpdate, onDelete }) {
     return (
         <div className='flex flex-row items-center justify-between pt-2'>
             <div className='w-6'>
@@ -20,7 +21,7 @@ function TaskCard({ item, defaults, onUpdate, onDelete }) {
             </div>
             <div className='w-9/12'>
                 <p>{item?.title}</p>
-                <p className='text-slate-500 text-xs capitalize'>{defaults.tagList[item.tag - 1]?.name} . <span className='text-blue-500'><Moment format="dddd, MMM D">{item.createdAt}</Moment></span></p>
+                <p className='text-slate-500 text-xs capitalize'>{tagList[item.tag - 1]?.name} . <span className='text-blue-500'><Moment format="dddd, MMM D">{item.createdAt}</Moment></span></p>
             </div>
             <div className='w-2/12 flex flex-row justify-end gap-4'>
                 <BtnOutline label="Edit" onClick={() => onUpdate(item)} />

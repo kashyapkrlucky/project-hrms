@@ -40,11 +40,11 @@ function Holidays() {
     }, []);
 
     return (
-        <div className='w-1/5 flex flex-col'>
+        <div className='flex flex-col'>
             <div className='flex flex-row justify-between items-center bg-emerald-300 px-4 py-1'>
-                <div className='text-sm'>Public Holidays</div>
+                <div className='text-md'>Public Holidays</div>
 
-                <div className='flex flex-row items-center gap-4'>
+                {/* <div className='flex flex-row items-center gap-4'>
                     <label
                         htmlFor="file-upload"
                         className="relative flex flex-col cursor-pointer"
@@ -54,19 +54,19 @@ function Holidays() {
                         <input id="file-upload" name="file-upload" type="file" className="sr-only" onChange={handleChange} />
                     </label>
                     <BtnOutline label='Upload' onClick={onUpload} />
-                </div>
+                </div> */}
             </div>
-            <div className='bg-white flex flex-col p-4 gap-4 h-96 overflow-x-auto'>
+            <div className='bg-white flex flex-col p-4 gap-4'>
                 {
                     holidays.length > 0 ?
                         holidays.map((h, i) => (
                             <div className='flex flex-row gap-4' key={i}>
-                                <div className={'w-10 h-10 flex flex-col justify-center items-center text-sm ' + isHolidayPast(h.date)}>
+                                <div className={'w-2/12 h-10 flex flex-col justify-center items-center text-xs ' + isHolidayPast(h.date)}>
                                     <Moment format="D">{h.date}</Moment>
                                     <Moment format="MMM">{h.date}</Moment>
                                 </div>
-                                <div className=' flex flex-col justify-center'>
-                                    <div className='text-sm'>{h.holiday}</div>
+                                <div className='w-10/12 flex flex-col justify-center'>
+                                    <div className='text-xs truncate w-48'>{h.holiday}</div>
                                     <div className='text-xs text-slate-600'>{h.weekday}</div>
                                 </div>
                             </div>

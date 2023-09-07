@@ -2,22 +2,19 @@ import React, { useContext, useEffect, useState } from 'react';
 import CustomPage from '../../Common/CustomPage';
 import { cards, textTheme } from '../../Utils/Classes';
 import HttpClient from '../../HttpClient';
-import {
-  InformationCircleIcon, Squares2X2Icon, UserCircleIcon
-} from '@heroicons/react/24/outline';
 import { ModalPage } from '../../Components/ModelPage';
 import TaskCard from './TaskCard';
 import TaskAction from './TaskAction';
 import NoItems from '../../Common/NoItems';
 import { UserContext } from '../../Contexts/UserContext';
+import { tagList } from '../../Utils/DataService';
+
 
 function MyTasks() {
   const [currentTag, setCurrentTag] = useState('4');
   const [tasks, setTasks] = useState([]);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [user] = useContext(UserContext);
-
-  const [defaults, setDefaults] = useState({});
 
   const [task, setTask] = useState({
     empId: user._id,
@@ -95,18 +92,6 @@ function MyTasks() {
 
   useEffect(() => {
     getTasks();
-    setDefaults({
-      tagList: [
-        { id: '1', name: 'Important', icon: <InformationCircleIcon className='w-6 h-6' /> },
-        { id: '2', name: 'Personal', icon: <UserCircleIcon className='w-6 h-6' /> },
-        { id: '3', name: 'Others', icon: <InformationCircleIcon className='w-6 h-6' /> },
-        { id: '4', name: 'All', icon: <Squares2X2Icon className='w-6 h-6' /> },
-      ],
-      statusList: [
-        { id: '1', name: 'New' }, { id: '2', name: 'In Progress' }, { id: '3', name: 'Completed' },
-      ]
-    });
-
   }, []);
 
   const btnOne = {
@@ -120,7 +105,7 @@ function MyTasks() {
         <div className='w-1/5 flex flex-col gap-2'>
           <p className='text-slate-500 text-xs uppercase py-2'>Favorites</p>
           {
-            defaults.tagList.map((t, i) => (
+            tagList.map((t, i) => (
               <div className={'font-medium text-sm cursor-pointer py-2 flex flex-row items-center gap-2 ' + (currentTag === t.id ? textTheme : '')} key={i} onClick={() => changeTag(t.id)}>
                 {t.icon}
                 <span className='capitalize'>{t.name}</span>
@@ -135,7 +120,6 @@ function MyTasks() {
                 filterList(t) && <TaskCard
                   key={i}
                   item={t}
-                  defaults={defaults}
                   onUpdate={onUpdate}
                   onDelete={onDelete} />
               )) :
@@ -149,7 +133,6 @@ function MyTasks() {
           <TaskAction
             setIsFormOpen={setIsFormOpen}
             task={task}
-            defaults={defaults}
             onChange={onChange}
             onSubmit={onSubmit}
             resetForm={resetForm} />

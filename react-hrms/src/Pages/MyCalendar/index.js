@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import CustomPage from '../../Common/CustomPage'
-import { bgTheme, borderTheme, cards, textTheme } from '../../Utils/Classes'
+import { borderTheme, cards, textTheme } from '../../Utils/Classes'
 import { months, days, getYears } from '../../Utils/DataService';
 import LabelDropDown from '../../Common/LabelDropDown';
+import Moment from 'react-moment';
+import BtnOutline from '../../Common/BtnOutline';
 
 function MyCalendar() {
+  const [date, setDate] = useState(0);
   const [month, setMonth] = useState(0);
   const [year, setYear] = useState(0);
   const years = getYears(1970);
   const [calender, setCalender] = useState([]);
   const [selection, setSelection] = useState({
-    month: 0 || new Date().getMonth(),
+    month: 0 || new Date().getMonth() + 1,
     year: 0 || new Date().getFullYear(),
   });
+
+  const [eventList, setEventList] = useState([]);
 
   const onChange = async (e) => {
     const { name, value } = e.currentTarget;
@@ -20,7 +25,7 @@ function MyCalendar() {
     updateDates();
   }
 
-  const eventColors = ['bg-green-500', 'bg-pink-500', 'bg-amber-500'];
+  const eventColors = ['bg-green-200', 'bg-pink-200', 'bg-amber-200'];
 
   const dateEvents = [
     {
@@ -89,6 +94,17 @@ function MyCalendar() {
     return isCheck ? `border-2 ${borderTheme} ${textTheme} rounded-md` : ''
   };
 
+  const onDateClick = (day) => {
+    setDate(day.date);
+    setEventList(day.data);
+  }
+
+  const isSelected = (day) => {
+    const isCheck = ((selection.month - 1) === (month - 1)) &&
+      (selection.year === year) && (day.date === date);
+    return isCheck ? `border-2 border-red-500 text-red-500 rounded-md` : ''
+  }
+
   useEffect(() => {
     setSelection({
       month: 0 || new Date().getMonth() + 1,
@@ -108,31 +124,46 @@ function MyCalendar() {
             <LabelDropDown name="year" value={selection?.year} list={years} onChange={onChange} />
           </div>
         </section>
-        <section className='flex flex-col gap-4'>
-          <div className='grid grid-cols-7 select-none text-slate-500 text-xs'>
-            {days.map((d) =>
-              <div className='flex flex-row justify-center p-2 border-y-2 border-slate-200' key={d._id}>
-                {d.longName}
-              </div>
-            )}
-          </div>
-          <div className='grid grid-cols-7 gap-2 text-sm select-none'>
-            {
-              calender.map((day, i) => (
-                <div className={'flex flex-col h-16 items-center justify-center cursor-pointer ' + isTodayDate(day)} key={i}>
-                  <div className='text-3xl'>
-                    {day.date}
-                  </div>
-                  <div className='h-4 flex flex-row gap-1'>
-                    {day.data.map(d => (
-                      <p className={'w-2 h-2 rounded-full ' + eventColors[d.type - 1]} key={d.title}></p>
-                    ))}
-                  </div>
+        <div className='flex flex-row gap-4'>
+          <section className='w-4/6 flex flex-col gap-4'>
+            <div className='grid grid-cols-7 gap-2 select-none border-b border-gray-300 text-slate-500 text-xs'>
+              {days.map((d) =>
+                <div className='flex flex-row justify-center p-2' key={d._id}>
+                  {d.longName}
                 </div>
-              ))
-            }
-          </div>
-        </section>
+              )}
+            </div>
+            <div className='grid grid-cols-7 gap-2 text-sm select-none'>
+              {
+                calender.map((day, i) => (
+                  <div className={'flex flex-col h-16 items-center justify-center cursor-pointer ' + isTodayDate(day) + isSelected(day)} key={i} onClick={() => onDateClick(day)}>
+                    <div className='text-3xl'>
+                      {day.date}
+                    </div>
+                    <div className='h-4 flex flex-row gap-1'>
+                      {day.data.map(d => (
+                        <p className={'w-2 h-2 rounded-full ' + eventColors[d.type - 1]} key={d.title}></p>
+                      ))}
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </section>
+          <aside className='w-2/6 px-4 flex flex-col gap-4 border-l border-gray-300'>
+            <div className='flex flex-row justify-between items-center'>
+              <p>UpComing Events</p>
+              <BtnOutline label="Add New"/>
+            </div>
+            {eventList.map((ev, i) => (
+              <div className={'flex flex-col gap-1 p-2 backdrop-opacity-10 rounded-md ' + eventColors[ev.type - 1]} key={i}>
+                <p className='text-xs lowercase'><Moment format="HH:MM">{ev?.eventOn}</Moment></p>
+                <p className='font-medium'>{ev?.title}</p>
+                <p className='text-xs capitalize'>{ev?.description}</p>
+              </div>
+            ))}
+          </aside>
+        </div>
       </div>
     </CustomPage>
   )

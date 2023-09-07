@@ -6,11 +6,9 @@ const Attendance = require('../models/Attendance');
 const Employee = require('../models/Employee');
 
 const startOfDay = new Date();
-startOfDay.setUTCHours(0, 0, 0, 0);
-console.log(startOfDay);
-
+startOfDay.setHours(0, 0, 0, 0);
 const endOfDay = new Date();
-endOfDay.setUTCHours(23, 59, 59, 999);
+endOfDay.setHours(23, 59, 59, 999);
 
 exports.getCompanyData = async (req, res, next) => {
     const designations = await Designation

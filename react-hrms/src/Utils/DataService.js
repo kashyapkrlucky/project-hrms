@@ -5,8 +5,10 @@ import {
     ClipboardDocumentCheckIcon,
     Cog8ToothIcon,
     CurrencyDollarIcon,
+    InformationCircleIcon,
     MegaphoneIcon,
     Squares2X2Icon,
+    UserCircleIcon,
     UserGroupIcon,
     UserPlusIcon
 } from '@heroicons/react/24/outline';
@@ -136,55 +138,17 @@ export const Avatars = [
     { name: 'Woman 3', url: 'woman-3.png' },
     { name: 'Woman 4', url: 'woman-4.png' },
     { name: 'Woman 5', url: 'woman-5.png' },
+];
+
+export const tagList = [
+    { id: '1', name: 'Important', icon: <InformationCircleIcon className='w-6 h-6' /> },
+    { id: '2', name: 'Personal', icon: <UserCircleIcon className='w-6 h-6' /> },
+    { id: '3', name: 'Others', icon: <InformationCircleIcon className='w-6 h-6' /> },
+    { id: '4', name: 'All', icon: <Squares2X2Icon className='w-6 h-6' /> },
 ]
-// export const createRandomJob = (id) => {
-//     const sex = faker.person.sexType();
-//     const firstName = faker.person.firstName(sex);
-//     const lastName = faker.person.lastName();
-//     const email = faker.helpers.unique(faker.internet.email, [
-//         firstName,
-//         lastName,
-//     ]);
-//     return {
-//         _id: id,
-//         profile: faker.person.jobTitle(),
-//         description: faker.person.jobDescriptor(),
-//         hiringManager: {
-//             name: firstName + ' ' + lastName,
-//             email,
-//             avatar: faker.image.avatar(),
-//         },
-//         avatar: faker.image.avatar(),
-//         positions: faker.helpers.arrayElement([1, 2, 3, 4, 5]),
-//         jobType: faker.person.jobType(),
-//         location: faker.location.city(),
-//         requiredSkills: faker.helpers.arrayElement(['Angular']),
-//         status: faker.helpers.arrayElement([0, 1, 2])
-//     }
-// }
-
-// export const createRandomUser = () => {
-//     const sex = faker.person.sexType();
-//     const firstName = faker.person.firstName(sex);
-//     const lastName = faker.person.lastName();
-//     const email = faker.helpers.unique(faker.internet.email, [
-//         firstName,
-//         lastName,
-//     ]);
-
-//     return {
-//         _id: faker.datatype.uuid(),
-//         avatar: faker.image.avatar(),
-//         email,
-//         name: firstName + ' ' + lastName,
-//         sex,
-//         phone: faker.phone.imei(),
-//         profile: faker.person.jobTitle(),
-//         company: faker.company.name(),
-//         status: faker.helpers.arrayElement([0, 1, 2])
-//     };
-// }
-
+export const taskStatusList = [
+    { id: '1', name: 'New' }, { id: '2', name: 'In Progress' }, { id: '3', name: 'Completed' },
+]
 
 // const a = {
 //     createdAt: "2023-08-18T12:13:05.423Z",

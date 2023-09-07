@@ -3,8 +3,9 @@ import LabelInput from '../../Common/LabelInput';
 import LabelDropDown from '../../Common/LabelDropDown';
 import BtnOutline from '../../Common/BtnOutline';
 import BtnSolid from '../../Common/BtnSolid';
+import { tagList, taskStatusList } from '../../Utils/DataService';
 
-function TaskAction({ task, defaults, onChange, onSubmit, setIsFormOpen, resetForm }) {
+function TaskAction({ task, onChange, onSubmit, setIsFormOpen, resetForm }) {
     return (
         <div className="bg-white rounded-lg w-1/3 p-4">
             <div className="flex flex-col h-full">
@@ -19,10 +20,10 @@ function TaskAction({ task, defaults, onChange, onSubmit, setIsFormOpen, resetFo
                         <LabelInput name="title" value={task.title} type="text" label="title" onChange={onChange} />
                     </div>
                     <div className="col-span-12">
-                        <LabelDropDown name="tag" value={task.tag} label='Tag' list={defaults.tagList.slice(0, 3)} onChange={onChange} />
+                        <LabelDropDown name="tag" value={task.tag} label='Tag' list={tagList.slice(0, 3)} onChange={onChange} />
                     </div>
                     <div className="col-span-12">
-                        <LabelDropDown name="status" value={task.status} label='status' list={defaults.statusList} onChange={onChange} />
+                        <LabelDropDown name="status" value={task.status} label='status' list={taskStatusList} onChange={onChange} />
                     </div>
                 </div>
                 <div className="mt-6 flex items-center justify-end gap-4">
