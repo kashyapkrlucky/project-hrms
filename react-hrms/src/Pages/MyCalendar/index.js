@@ -85,6 +85,7 @@ function MyCalendar() {
     const dateList = [...Array(dayCount)].map((u, i) => { return { date: i + 1, data: [] } });
 
     const updatedList = mergeDateEvents(dateList);
+    console.log([...blanks, ...updatedList]);
     setCalender([...blanks, ...updatedList]);
   }
 

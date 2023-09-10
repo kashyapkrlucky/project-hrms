@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -24,9 +24,17 @@ import Company from './Pages/Company';
 import EditEmployee from './Pages/Employees/EditEmployee';
 import Employee from './Pages/Employee';
 import MyCalendar from './Pages/MyCalendar';
+import { disconnectSocket, initiateSocketConnection } from './Utils/Socket.Service';
+import Messages from './Pages/Messages';
 
 const App = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
+  useEffect(() => {
+    initiateSocketConnection();
+    return () => {
+      disconnectSocket();
+    }
+  }, []);
   return (
     <UserContext.Provider value={[user, setUser]}>
       <ErrorBoundary>
@@ -46,6 +54,7 @@ const App = () => {
               </Route>
               <Route path="my-profile" element={<MyProfile />}></Route>
               <Route path="my-tasks" element={<MyTasks />} />
+              <Route path="messages" element={<Messages />} />
               <Route path="my-calendar" element={<MyCalendar />} />
               <Route path="leave-manager" element={<LeaveManager />} />
               <Route path="company" element={<Company />} />
