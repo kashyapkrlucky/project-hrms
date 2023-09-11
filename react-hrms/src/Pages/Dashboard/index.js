@@ -30,7 +30,7 @@ function Dashboard() {
     }, []);
 
     return (
-        <div>
+        <>
             <div className='flex flex-row justify-between p-4 text-lg'>
                 <div>
                     Good Morning, {user?.firstName} {user?.lastName}
@@ -53,7 +53,7 @@ function Dashboard() {
                     </div>
                 </div>
             </main>
-        </div>
+        </>
     )
 }
 

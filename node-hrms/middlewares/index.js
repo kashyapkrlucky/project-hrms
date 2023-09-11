@@ -7,6 +7,7 @@ const express = require('express');
 const employee = require('../routes/employee');
 const company = require('../routes/company');
 const recruitment = require('../routes/recruitment');
+const message = require('../routes/message');
 const job = require('../routes/job');
 const task = require('../routes/task');
 const leave = require('../routes/leave');
@@ -34,6 +35,7 @@ module.exports = (app) => {
     app.use('/api/employee', employee);
     app.use('/api/company', company);
     app.use('/api/recruitment', recruitment);
+    app.use('/api/message', message);
     app.use('/api/job', job);
     app.use('/api/task', task);
     app.use('/api/leave', leave);
