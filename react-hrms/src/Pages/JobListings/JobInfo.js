@@ -86,22 +86,6 @@ function JobInfo() {
               currentTab === 1 &&
               <div className='divide-y divide-slate-100'>
                 {item.candidates.map((item, i) => (
-                  // <div className='flex flex-row justify-between' key={i}>
-                  //   <div className='flex flex-row gap-4 p-4'>
-                  //     <div className='flex flex-row'>
-                  //       <Avatar url={c?.avatar}/>
-                  //     </div>
-                  //     <div className='flex flex-col'>
-                  //       <p className='font-medium'>{c.firstName + ' ' + c.lastName}</p>
-                  //       <p className='text-sm text-slate-500'>{c.email} at {c.mobile}</p>
-                  //     </div>
-                  //   </div>
-                  //   <div className='flex flex-row items-center'>
-                  //     <div className='w-40 flex flex-col gap-2'>
-                  //       <BtnOutline label="View Candidate" />
-                  //     </div>
-                  //   </div>
-                  // </div>
                   <Candidate item={item} key={i} getJobInfo={getJobInfo} />
                 ))}
               </div>

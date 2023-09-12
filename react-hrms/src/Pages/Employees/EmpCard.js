@@ -14,7 +14,7 @@ function EmpCard({ employee }) {
   return (
     <div className={cards + ' flex flex-col gap-4'}>
       <div className='flex flex-col items-center gap-2'>
-        <Avatar classes='h-20 w-20' url={employee.avatar} />
+        <Avatar classes='h-20 w-20' employee={employee} />
         <p className="text-lg text-gray-900">{employee.firstName + ' ' + employee.lastName}</p>
         <p className="text-xs text-gray-500">{employee?.designation?.name} | {employee.empCode}</p>
       </div>

@@ -26,6 +26,7 @@ exports.threads = async (req, res, next) => {
                     ]
                 }
             },
+            { $sort: { created_at: -1 } },
             {
                 $project: {
                     "_id": 0,
@@ -43,9 +44,11 @@ exports.threads = async (req, res, next) => {
             {
                 $group: {
                     _id: "$with",
-                    lastMessage: { "$last": "$text" }
+                    lastMessage: { "$first": "$text" },
+                    created_at: { "$first": "$created_at" }
                 }
-            },
+            }, 
+            { $sort: { created_at: -1 } },
             {
                 $lookup: {
                     from: 'employees',

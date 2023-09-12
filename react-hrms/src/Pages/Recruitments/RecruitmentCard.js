@@ -35,7 +35,7 @@ function RecruitmentCard({ item, getRecruitments }) {
                     <BriefcaseIcon className='w-5 h-5' /> <span>{item.jobId.profile.name}</span>
                 </div>
                 <div className='flex flex-row gap-2 items-center'>
-                    <Avatar url={item?.recruiter.avatar} classes='w-5 h-5' /> <span>{item?.recruiter.firstName} {item?.recruiter.lastName}</span>
+                    <Avatar employee={item?.recruiter} classes='w-5 h-5' /> <span>{item?.recruiter.firstName} {item?.recruiter.lastName}</span>
                 </div>
             </div>
             <div className='flex flex-col gap-2 w-1/5 text-sm'>

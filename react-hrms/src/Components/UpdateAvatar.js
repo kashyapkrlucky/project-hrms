@@ -30,7 +30,7 @@ function UpdateAvatar({onPhotoChange}) {
     return (
         <>
             <div className='flex flex-row gap-4 items-center'>
-                <Avatar url={currentImg} classes="w-20 h-20" />
+                {/* <Avatar url={currentImg} classes="w-20 h-20" /> */}
                 <p className={outlineBtn + ' cursor-pointer'} onClick={() => setIsEditorOpen(true)}>Change</p>
             </div>
             {
@@ -47,7 +47,7 @@ function UpdateAvatar({onPhotoChange}) {
                             {
                                 Avatars.map((item, index) => (
                                     <div key={index} className={"rounded-full border-4 " + getCurrentImgStyle(item)} onClick={() => {setCurrentImg(item.url);onSelect(item.url)}}>
-                                        <Avatar name={item.name} url={item.url} classes='w-20 h-20 cursor-pointer' />
+                                        {/* <Avatar name={item.name} url={item.url} classes='w-20 h-20 cursor-pointer' /> */}
                                     </div>
                                 ))
                             }

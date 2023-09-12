@@ -35,11 +35,11 @@ function FindEmployee({ label = "", name, onChange }) {
                 }
                 <input value={text} className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-50 sm:text-sm sm:leading-6" onChange={onSearch} />
             </div>
-            {employees.length > 0 && <div className='absolute top-20 bg-white rounded-md p-2 shadow-md w-52'>
+            {employees.length > 0 && <div className={'absolute bg-white rounded-md p-2 shadow-md w-52 ' + (label ? 'top-20' : 'top-10')}>
                 {employees.map((e, i) => (
                     <div className='flex flex-row items-center gap-4' key={i} onClick={() => onSelect(e)}>
-                        <Avatar url={e.avatar}/>
-                        <p>{e.firstName} {e.lastName}</p>
+                        <Avatar employee={e}/>
+                        <p className='text-sm'>{e.firstName} {e.lastName}</p>
                     </div>
                 ))}
             </div>}

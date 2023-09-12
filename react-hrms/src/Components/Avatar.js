@@ -1,12 +1,21 @@
 import React from 'react'
 
-function Avatar({ url = 'animal-cat.png', classes = 'h-8 w-8', alt='image' }) {
+function Avatar({ employee, classes = 'h-8 w-8', alt = 'image' }) {
     return (
-        <img
-            className={"rounded-full " + classes}
-            src={"/avatars/" + url}
-            alt={alt}
-        />
+        <>
+            {
+                employee?.avatar ?
+                    <img
+                        className={"rounded-full " + classes}
+                        src={"/avatars/" + employee?.avatar}
+                        alt={alt}
+                    /> :
+                    <div className={"rounded-full flex flex-row justify-center items-center border-2 border-slate-500 " + classes}>
+                        {employee?.firstName[0]}
+                        {employee?.lastName[0]}
+                    </div>
+            }
+        </>
     )
 }
 
