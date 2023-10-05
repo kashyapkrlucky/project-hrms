@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Avatar({ employee, classes = 'h-8 w-8', alt = 'image' }) {
+function Avatar({ employee, classes = 'h-8 w-8 text-xl', alt = 'image' }) {
     return (
         <>
             {

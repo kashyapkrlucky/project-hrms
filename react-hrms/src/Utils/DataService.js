@@ -25,9 +25,9 @@ export const NavLinks = [
             { name: 'Dashboard', path: '/app/dashboard', icon: <Squares2X2Icon className='w-6 h-6' /> },
             { name: 'My Calendar', path: '/app/my-calendar', icon: <CalendarDaysIcon className='w-6 h-6' /> },
             { name: 'My Tasks', path: '/app/my-tasks', icon: <ClipboardDocumentCheckIcon className='w-6 h-6' /> },
-            { name: 'Messages', path: '/app/messages', icon: <ChatBubbleLeftRightIcon className='w-6 h-6' /> },
             { name: 'Pay & Benefits', path: '/app/pay-benefits', icon: <CurrencyDollarIcon className='w-6 h-6' /> },
-            { name: 'Leave Manager', path: '/app/leave-manager', icon: <CalendarIcon className='w-6 h-6' /> }
+            { name: 'Leave Manager', path: '/app/leave-manager', icon: <CalendarIcon className='w-6 h-6' /> },
+            { name: 'Messages', path: '/app/messages', icon: <ChatBubbleLeftRightIcon className='w-6 h-6' /> }
         ]
     },
     {

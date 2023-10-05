@@ -5,8 +5,8 @@ import BtnOutline from '../Common/BtnOutline';
 
 function SubNavBar({ title = 'Sub Header', btnOne, btnTwo }) {
     return (
-        <header className={fxCenBet + " border-t-2 border-gray-200 h-20"}>
-            <h2 className="text-2xl font-medium leading-7 text-gray-900">{title}</h2>
+        <header className={fxCenBet + " border-t-2 border-gray-200 h-16"}>
+            <h2 className="text-xl font-medium leading-7 text-emerald-500">{title}</h2>
             <div className='flex flex-row gap-4'>
                 {
                     btnOne &&
